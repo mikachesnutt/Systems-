@@ -1,0 +1,63 @@
+//author: Mika Chesnutt 
+//date: February 15, 2017 
+// input is an unknown number of integers, stops when it sees a zero, prints
+// last 10 numbers read (not 0) in order they were given
+
+//queue: first in first out, 
+
+
+#include <stdio.h>
+int A[10]; 
+
+int main () { 
+	int * p = A;
+	int * s = A; 
+	int i; 
+	int * q; 
+
+
+	//use scanf
+	int r; 
+	scanf("%d", &r); 
+	while ( r != 0) {            //keep scanning until it reaches a '0' 
+		*p = r; 
+		 p = p + 1; 
+		 scanf("%d", &r); 
+		 if (p == s + 10) {
+		 	p = s; 
+		 }
+	}
+
+
+	if (p == s) {
+		q = s + 10;    //the last thing you will print 
+	}
+	else { 	
+		q = p - 1; 		//the last thing you will print 
+	}
+	//if the next slot has something, print it, and once u hit the 10th, loop back to start until u hit the q
+ 	
+ 				// set q equal to p to keep that position  
+
+
+	while (q != p) { 
+			if (*p == 0) {          //if the pointer is pointing to a null, set the pointer to the beginning of the array 
+			p = s; 
+			}
+			printf("%d ", (*p)); 
+			p = p + 1; 
+		if (p == s + 10) {
+			p = s; 
+		}	
+	}
+	printf("%d ", (*q)); 
+}
+
+
+
+
+	
+	
+
+
+
